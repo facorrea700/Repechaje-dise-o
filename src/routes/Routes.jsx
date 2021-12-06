@@ -6,11 +6,15 @@ import About from '../pages/About';
 import NavRouter from './NavRouter';
 import Perfil from '../pages/Perfil';
 import CrearUsuario from '../pages/CrearUsuario';
+import Login from '../pages/Login';
 
 const Routes = () => (
   <Switch>
     <NavRouter path="/about">
       <About />
+    </NavRouter>
+    <NavRouter path="/login">
+      <Login />
     </NavRouter>
     <NavRouter path="/perfil">
       <Perfil />

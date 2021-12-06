@@ -1,26 +1,17 @@
-import React from 'react';
-import axios from 'axios';
-
-function loguear() {
-  (async () => {
-    // POST request using axios with async/await
-    const element = document.querySelector('#post-request-async-await .article-id');
-    const article = { title: 'Axios POST Request Example' };
-    const response = await axios.post('https://reqres.in/api/articles', article);
-    element.innerHTML = response.data.id;
-  })();
-}
+import React, { useState } from 'react';
 
 function CrearUsuario() {
+  const [count, setCount] = useState(0);
   return (
     <div>
       <h1>Crear usuario</h1>
-      <form className="form" onSubmit="loguear()">
+      <form className="form" onSubmit="">
         <div>
-          <input type="email" className="form-control" id="email" />
-          <input type="text" className="form-control" id="name" />
-          <input type="password" className="form-control" id="password" />
-          <input type="submit" className="btn btn-primary" value="Crear" />
+          <input type="text" className="form-control" id="name" placeholder="Name" />
+          <input type="email" className="form-control" id="email" placeholder="Email" />
+          <input type="password" className="form-control" id="password" placeholder="Password" />
+          <input type="submit" className="btn btn-primary" value="Crear" onClick={() => setCount(count + 1)} />
+
         </div>
       </form>
     </div>
