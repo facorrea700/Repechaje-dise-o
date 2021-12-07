@@ -1,23 +1,28 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function CrearUsuario() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [mail, setMail] = useState('');
-
+  const [email, setMail] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = { password, name, mail };
-    console.log(user);
+    const user = { password, name, email };
+    // console.log(user);
 
-    fetch('https://repechaje-backend.herokuapp.com/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/JSON' },
-      body: JSON.stringify(user),
-    }).then(() => {
-      console.log('Usuario Creado');
-    });
+    axios.post('https://repechaje-backend.herokuapp.com/users', user)
+      .then((res) => {
+        console.log(res);
+        if (res.request.status === 201) {
+          alert('usuario creado');
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 409) {
+          alert('Conflicto, mail ya utilizado');
+        }
+      });
   };
 
   return (
@@ -29,18 +34,21 @@ function CrearUsuario() {
             type="text"
             required
             value={name}
+            placeholder="Nombre"
             onChange={(e) => setName(e.target.value)}
           />
           <input
-            type="mail"
+            type="email"
             required
-            value={mail}
+            value={email}
+            placeholder="email"
             onChange={(e) => setMail(e.target.value)}
           />
           <input
             type="password"
             required
             value={password}
+            placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <input type="submit" value="Crear usuario" />
