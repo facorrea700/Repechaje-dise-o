@@ -1,4 +1,5 @@
 import React from 'react';
+import Post from '../components/Post';
 
 function Login() {
   let user = {};
@@ -11,13 +12,14 @@ function Login() {
         {user.name}
         <li>Email: </li>
         {user.email}
+        <Post nombre={user.name} />
       </div>
     );
   }
   return (
     <div className="Login">
       <h1>Profile</h1>
-      <li>No estas logueado</li>
+      <li>No estas logueado </li>
     </div>
   );
 }
