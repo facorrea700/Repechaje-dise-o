@@ -9,7 +9,6 @@ function CrearUsuario() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = { password, name, email };
-    // console.log(user);
 
     axios.post('https://repechaje-backend.herokuapp.com/users', user)
       .then((res) => {

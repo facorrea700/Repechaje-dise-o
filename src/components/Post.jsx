@@ -1,9 +1,10 @@
-import react from "react";
+import React from 'react';
 
 function Post(props) {
-  return(
-  <div className="post">
-    <h2>welcome, {props.name}</h2>
-    </div>);
+  return (
+    <div className="post">
+      <h2>{props.name}</h2>
+    </div>
+  );
 }
 export default Post;
