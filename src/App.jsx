@@ -9,21 +9,18 @@ function App() {
     history.push('/login');
   } else {
     const User = JSON.parse(localStorage.getItem('Facebook2_user'));
-    const userId = User.id.toString();
-    console.log(userId);
-    const pegarle = 'https://repechaje-backend.herokuapp.com/posts';
-    axios.get(pegarle, { headers: { id: ` ${User.id}` } }).then((res) => {
-      console.log(res);
+    let posts = [];
+    const pegarle = 'https://repechaje-backend.herokuapp.com/posts/';
+    axios.get(pegarle + User.id).then((res) => {
       if (res.request.status === 200) {
-        // alert('trayendo posts');
-        const post = JSON.stringify(res.data);
-        console.log(post);
+        posts = JSON.stringify(res.data);
+        console.log(posts);
       }
     });
     return (
       <div>
         <h1>App</h1>
-        <Post />
+        <Post title={posts.title} />
         <p>fiumba</p>
       </div>
     );
