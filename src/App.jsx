@@ -14,14 +14,15 @@ function App() {
     axios.get(pegarle + User.id).then((res) => {
       if (res.request.status === 200) {
         posts = JSON.stringify(res.data);
-        console.log(posts);
+        localStorage.setItem('Facebook2_posts', posts);
       }
     });
+    posts = JSON.parse(localStorage.getItem('Facebook2_posts'));
     return (
       <div>
-        <h1>App</h1>
-        <Post title={posts.title} />
-        <p>fiumba</p>
+        {posts.map((post) => (
+          <Post title={post.title} content={post.content} img={post.image} />
+        ))}
       </div>
     );
   }

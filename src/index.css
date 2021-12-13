@@ -46,17 +46,36 @@ code {
 }
 
 .post-wrapper {
-  border: solid black 1px;
+  border: solid black 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
   margin: 10px;
   padding: 10px;
-  width: 200px;
+  width: 400px;
+}
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+}
+.description{
+  font-size: 1em;
+  font-weight: bold;
+  color: rgb(0, 0, 255);
+}
+.ul-navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.li-navbar {
+  display: inline-block;
 }
 
-.post-wrapper button {
-  font-size: 1em;
-  border: solid black 1px;
-  padding: 10;
-  background: none;
-  cursor: pointer;
-  margin: 10px 0;
+.a-navbar {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
 }
