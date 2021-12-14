@@ -7,6 +7,9 @@ import NavRouter from './NavRouter';
 import Perfil from '../pages/Perfil';
 import CrearUsuario from '../pages/CrearUsuario';
 import Login from '../pages/Login';
+import CrearPost from '../pages/CrearPost';
+import ModificarPost from '../pages/ModificarPost';
+import ModificarUsuario from '../pages/ModificarUsuario';
 
 const Routes = () => (
   <Switch>
@@ -21,6 +24,15 @@ const Routes = () => (
     </NavRouter>
     <NavRouter path="/crearUsuario">
       <CrearUsuario />
+    </NavRouter>
+    <NavRouter path="/crearPost">
+      <CrearPost />
+    </NavRouter>
+    <NavRouter path="/modificarPost">
+      <ModificarPost />
+    </NavRouter>
+    <NavRouter path="/modificarUsuario">
+      <ModificarUsuario />
     </NavRouter>
     <Route path="/">
       <NavBar />

@@ -15,7 +15,6 @@ function Login() {
       .then((res) => {
         console.log(res);
         if (res.request.status === 201) {
-          // alert('usuario logueado');
           localStorage.setItem('Facebook2_user', JSON.stringify(res.data));
           history.push('/perfil');
         }
@@ -46,6 +45,7 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input type="submit" value="Login" />
+        <a href="/crearUsuario">Not register?</a>
       </form>
     </div>
   );

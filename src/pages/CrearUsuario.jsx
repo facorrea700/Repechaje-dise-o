@@ -10,11 +10,13 @@ function CrearUsuario() {
     e.preventDefault();
     const user = { password, name, email };
 
-    axios.post('https://repechaje-backend.herokuapp.com/users', user)
+    axios
+      .post('https://repechaje-backend.herokuapp.com/users', user)
       .then((res) => {
         console.log(res);
         if (res.request.status === 201) {
           alert('usuario creado');
+          window.location.href = '/';
         }
       })
       .catch((err) => {
@@ -26,14 +28,14 @@ function CrearUsuario() {
 
   return (
     <div>
-      <h1>Crear usuario</h1>
+      <h1>Create user</h1>
       <form className="form" onSubmit={handleSubmit}>
-        <div>
+        <div className="form">
           <input
             type="text"
             required
             value={name}
-            placeholder="Nombre"
+            placeholder="Name"
             onChange={(e) => setName(e.target.value)}
           />
           <input
@@ -50,7 +52,8 @@ function CrearUsuario() {
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input type="submit" value="Crear usuario" />
+          <input type="submit" value="Create user" />
+          <a href="/login">Already registered?</a>
         </div>
       </form>
     </div>

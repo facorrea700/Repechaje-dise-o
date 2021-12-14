@@ -11,6 +11,9 @@ const NavBar = () => (
         <li className="li-navbar">
           <a className="a-navbar" href="/perfil">Profile</a>
         </li>
+        <li className="li-navbar">
+          <a className="a-navbar" href="/crearPost">Create Post</a>
+        </li>
       </ul>
     </div>
   </div>

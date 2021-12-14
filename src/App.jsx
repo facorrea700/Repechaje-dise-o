@@ -18,10 +18,23 @@ function App() {
       }
     });
     posts = JSON.parse(localStorage.getItem('Facebook2_posts'));
+    if (posts === []) {
+      return (
+        <div className="form">
+          <h1>No tienes posts...</h1>
+        </div>
+      );
+    }
     return (
-      <div>
+      <div className="form">
         {posts.map((post) => (
-          <Post title={post.title} content={post.content} img={post.image} />
+          <Post
+            title={post.title}
+            content={post.content}
+            img={post.image}
+            id={post.id}
+            likes={post.likes}
+          />
         ))}
       </div>
     );
